@@ -1,32 +1,43 @@
 package tests;
 
+import pages.LoginPage;
 import pages.MainPage;
 import pages.SignUpPage;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 import pages.TestSetup;
-import sun.applet.Main;
 
 public class SignUpTest extends TestSetup {
 
     @Test
     public void SignUpTest(){
-        String registerUrl = "https://en.dawanda.com/account/register";
-        String userName = "frontend-test-user-123c50312e980";
-        String email = "frontend-tests+-104301as03280@dawandamail.com";
-        driver.get(registerUrl);
-        SignUpPage signUpPage = new SignUpPage(driver);
-        assertTrue(signUpPage.isInitialized());
-        MainPage mainPage = new MainPage(driver);
-        if (!mainPage.userSectionText().contains("Register")) {
-            System.out.print("Login");
-        }
 
-        signUpPage.registerUser("test", "user", userName, email, "testuser");
+        String url = "https://en.dawanda.com/";
+        String userName = "frontend-test-user-1ddxmddc3s503212e980";
+        String email = "frontend-tests+-1d4xsx01ds0dddc3280@dawandamail.com";
+        String password = "testuser";
+
+        driver.get(url);
+        MainPage mainPage = new MainPage(driver);
+
+        // logout if user is register
+        if (!mainPage.userSectionText().contains("Register")) {
+            mainPage.logOut();
+        }
+        mainPage.navigateToRegister();
+        SignUpPage signUpPage = new SignUpPage(driver);
+
+        signUpPage.registerUser("test", "user", userName, email, password);
+        //assert register successful
         assertTrue(signUpPage.confirmationMessage().contains("We sent a confirmation link to " + email));
+
         mainPage.logOut();
+        mainPage.navigateTologIn();
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login(userName, password);
+        //assert login successful
+        assertTrue(mainPage.userSectionText().contains("Hello"));
     }
 }
