@@ -5,6 +5,7 @@ import pages.MainPage;
 import pages.SignUpPage;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import pages.TestSetup;
@@ -15,8 +16,8 @@ public class SignUpTest extends TestSetup {
     public void SignUpTest(){
 
         String url = "https://en.dawanda.com/";
-        String userName = "frontend-test-user-1ddxmddc3s503212e980";
-        String email = "frontend-tests+-1d4xsx01ds0dddc3280@dawandamail.com";
+        String userName = "frontend-test-user-1ddxmddc3sk503212e980";
+        String email = "frontend-tests+-1d4xsx01ds0dddc3280k@dawandamail.com";
         String password = "testuser";
 
         driver.get(url);
@@ -36,8 +37,13 @@ public class SignUpTest extends TestSetup {
         mainPage.logOut();
         mainPage.navigateTologIn();
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.login(userName, password);
+        try {
+            loginPage.login(userName, password);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         //assert login successful
-        assertTrue(mainPage.userSectionText().contains("Hello"));
+        assertTrue(mainPage.userSectionText().contains(userName));
+        mainPage.logOut();
     }
 }

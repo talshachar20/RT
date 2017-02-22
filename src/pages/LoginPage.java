@@ -22,7 +22,7 @@ public class LoginPage extends DriverInit {
         super(driver);
     }
 
-    public void login(String usernameInput, String passwordInput) {
+    public void login(String usernameInput, String passwordInput) throws InterruptedException {
 
         this.userName.clear();
         this.userName.sendKeys(usernameInput);
@@ -31,5 +31,6 @@ public class LoginPage extends DriverInit {
         this.password.sendKeys(passwordInput);
 
         this.loginSubmit.click();
+        Thread.sleep(1000);
     }
 }
