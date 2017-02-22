@@ -55,8 +55,8 @@
       <file leaf-file-name="SignUpTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/tests/SignUpTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="27" column="10" lean-forward="false" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
+            <state relative-caret-position="88">
+              <caret line="18" column="54" lean-forward="false" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -673,17 +673,11 @@
       <updated>1487704742116</updated>
       <workItem from="1487704745619" duration="3158000" />
       <workItem from="1487713625213" duration="4537000" />
-      <workItem from="1487751919980" duration="2119000" />
+      <workItem from="1487751919980" duration="2973000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SignUpTest_(1) - 2017.02.21 at 23h 56m 44s.xml">
-      <configuration name="SignUpTest (1)" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SignUpTest_(1) - 2017.02.22 at 00h 07m 42s.xml">
-      <configuration name="SignUpTest (1)" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="SignUpTest_(1) - 2017.02.22 at 00h 08m 12s.xml">
       <configuration name="SignUpTest (1)" configurationId="JUnit" />
     </history-entry>
@@ -708,9 +702,15 @@
     <history-entry file="SignUpTest_(1) - 2017.02.22 at 10h 01m 48s.xml">
       <configuration name="SignUpTest (1)" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="SignUpTest_(1) - 2017.02.22 at 15h 52m 41s.xml">
+      <configuration name="SignUpTest (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SignUpTest_(1) - 2017.02.22 at 16h 04m 51s.xml">
+      <configuration name="SignUpTest (1)" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9814000" />
+    <option name="totallyTimeSpent" value="10668000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="23" width="1260" height="681" extended-state="0" />
@@ -912,8 +912,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tests/SignUpTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="27" column="10" lean-forward="false" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
+        <state relative-caret-position="88">
+          <caret line="18" column="54" lean-forward="false" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
