@@ -5,7 +5,6 @@ import pages.SignUpPage;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 import pages.TestSetup;
@@ -16,8 +15,8 @@ public class SignUpTest extends TestSetup {
     @Test
     public void SignUpTest(){
         String registerUrl = "https://en.dawanda.com/account/register";
-        String userName = "frontend-test-user-10350302980";
-        String email = "frontend-tests+-10420109280@dawandamail.com";
+        String userName = "frontend-test-user-123c50312e980";
+        String email = "frontend-tests+-104301as03280@dawandamail.com";
         driver.get(registerUrl);
         SignUpPage signUpPage = new SignUpPage(driver);
         assertTrue(signUpPage.isInitialized());
@@ -28,5 +27,6 @@ public class SignUpTest extends TestSetup {
 
         signUpPage.registerUser("test", "user", userName, email, "testuser");
         assertTrue(signUpPage.confirmationMessage().contains("We sent a confirmation link to " + email));
+        mainPage.logOut();
     }
 }
