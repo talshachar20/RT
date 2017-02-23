@@ -10,14 +10,17 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import pages.TestSetup;
 
+import java.util.UUID;
+
 public class SignUpTest extends TestSetup {
 
     @Test
     public void SignUpTest(){
 
+        String randomString = UUID.randomUUID().toString();
         String url = "https://en.dawanda.com/";
-        String userName = "frontend-test-user-1ddxmddc3sk503212e980";
-        String email = "frontend-tests+-1d4xsx01ds0dddc3280k@dawandamail.com";
+        String userName = "test" + randomString;
+        String email = "frontend-tests+-" + randomString + "@dawandamail.com";
         String password = "testuser";
 
         driver.get(url);
@@ -37,12 +40,10 @@ public class SignUpTest extends TestSetup {
         mainPage.logOut();
         mainPage.navigateTologIn();
         LoginPage loginPage = new LoginPage(driver);
-        try {
-            loginPage.login(userName, password);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        loginPage.login(userName, password);
+
         //assert login successful
+        mainPage.textChange(userName);
         assertTrue(mainPage.userSectionText().contains(userName));
         mainPage.logOut();
     }

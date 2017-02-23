@@ -1,9 +1,12 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by tal.shachar on 21/02/17.
@@ -24,7 +27,11 @@ public class MainPage extends DriverInit {
 
     public MainPage(WebDriver driver) {
         super(driver);
+        _wait = new WebDriverWait(driver, 10);
     }
+
+    private WebDriverWait _wait;
+
 
     Actions action = new Actions(driver);
 
@@ -45,5 +52,9 @@ public class MainPage extends DriverInit {
     public void navigateToRegister() {
         action.moveToElement(this.userSection).build().perform();
         this.registerLink.click();
+    }
+
+    public void textChange(String userName) {
+        _wait.until(ExpectedConditions.textToBePresentInElement(userSection, "Hello,\n" + userName));
     }
 }

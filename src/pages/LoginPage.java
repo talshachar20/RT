@@ -1,14 +1,16 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by tal.shachar on 22/02/17.
  */
 public class LoginPage extends DriverInit {
-
     @FindBy(id="username")
     private WebElement userName;
 
@@ -22,7 +24,7 @@ public class LoginPage extends DriverInit {
         super(driver);
     }
 
-    public void login(String usernameInput, String passwordInput) throws InterruptedException {
+    public void login(String usernameInput, String passwordInput)  {
 
         this.userName.clear();
         this.userName.sendKeys(usernameInput);
@@ -31,6 +33,6 @@ public class LoginPage extends DriverInit {
         this.password.sendKeys(passwordInput);
 
         this.loginSubmit.click();
-        Thread.sleep(1000);
     }
+
 }
