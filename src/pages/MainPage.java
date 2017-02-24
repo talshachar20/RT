@@ -1,60 +1,40 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by tal.shachar on 21/02/17.
  */
-public class MainPage extends DriverInit {
+public class MainPage extends BasePage {
+    private final String USER_SECTION = "header-user-toggle";
+    private final String LOGOUT_LINK = "logout-link-container";
+    private final String LOGIN = "//*[@id=\"shared_header_user_dropdown\"]/ul/li[1]/a";
+    private final String REGISTER = "//*[@id=\"shared_header_user_dropdown\"]/ul/li[2]/a";
 
-    @FindBy(className="header-user-toggle")
-    private WebElement userSection;
-
-    @FindBy(className="logout-link-container")
-    private  WebElement logoutLink;
-
-    @FindBy(xpath = "//*[@id=\"shared_header_user_dropdown\"]/ul/li[1]/a")
-    private WebElement loginLink;
-
-    @FindBy(xpath = "//*[@id=\"shared_header_user_dropdown\"]/ul/li[2]/a")
-    private WebElement registerLink;
-
-    public MainPage(WebDriver driver) {
-        super(driver);
-        _wait = new WebDriverWait(driver, 10);
+    public MainPage() {
+        super(DriverInit.getDriver());
     }
 
-    private WebDriverWait _wait;
-
-
-    Actions action = new Actions(driver);
-
     public String userSectionText(){
-        return this.userSection.getText();
+        return getText(By.className(USER_SECTION));
     }
 
     public void logOut() {
-        this.userSection.click();
-        this.logoutLink.click();
+        click(By.className(USER_SECTION));
+        click(By.className(LOGOUT_LINK));
     }
 
     public void navigateTologIn() {
-        action.moveToElement(this.userSection).build().perform();
-        this.loginLink.click();
+        moveToElement(By.className(USER_SECTION));
+        click(By.xpath(LOGIN));
     }
 
     public void navigateToRegister() {
-        action.moveToElement(this.userSection).build().perform();
-        this.registerLink.click();
+        moveToElement(By.className(USER_SECTION));
+        click(By.xpath(REGISTER));
     }
 
     public void textChange(String userName) {
-        _wait.until(ExpectedConditions.textToBePresentInElement(userSection, "Hello,\n" + userName));
+        waitUntilTextPresented(By.className("logged-in-state"));
     }
 }

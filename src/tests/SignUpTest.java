@@ -1,14 +1,11 @@
 package tests;
 
-import pages.LoginPage;
-import pages.MainPage;
-import pages.SignUpPage;
+import pages.*;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import pages.TestSetup;
 
 import java.util.UUID;
 
@@ -16,22 +13,21 @@ public class SignUpTest extends TestSetup {
 
     @Test
     public void SignUpTest(){
-
-        String randomString = UUID.randomUUID().toString();
         String url = "https://en.dawanda.com/";
+        String randomString = UUID.randomUUID().toString();
         String userName = "test" + randomString;
         String email = "frontend-tests+-" + randomString + "@dawandamail.com";
         String password = "testuser";
 
-        driver.get(url);
-        MainPage mainPage = new MainPage(driver);
+        DriverInit.getDriver().get(url);
+        MainPage mainPage = new MainPage();
 
         // logout if user is register
         if (!mainPage.userSectionText().contains("Register")) {
             mainPage.logOut();
         }
         mainPage.navigateToRegister();
-        SignUpPage signUpPage = new SignUpPage(driver);
+        SignUpPage signUpPage = new SignUpPage();
 
         signUpPage.registerUser("test", "user", userName, email, password);
         //assert register successful
@@ -39,7 +35,7 @@ public class SignUpTest extends TestSetup {
 
         mainPage.logOut();
         mainPage.navigateTologIn();
-        LoginPage loginPage = new LoginPage(driver);
+        LoginPage loginPage = new LoginPage();
         loginPage.login(userName, password);
 
         //assert login successful

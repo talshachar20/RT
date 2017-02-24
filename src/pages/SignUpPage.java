@@ -3,79 +3,37 @@ package pages;
 /**
  * Created by tal.shachar on 21/02/17.
  */
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
-
+import org.openqa.selenium.By;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SignUpPage extends DriverInit {
+public class SignUpPage extends BasePage {
 
     List<String> list = new ArrayList<String>();
+    private final String FIRST_NAME = "firstname";
+    private final String LAST_NAME = "lastname";
+    private final String USERNAME = "username";
+    private final String EMAIL = "email";
+    private final String PASSWORD = "password";
+    private final String ACCEPT_PRIVACY = "accept_privacy";
+    private final String SUBMIT = "register_submit";
+    private final String USER_VALIDATION = "validate_email_hint";
 
-    @FindBy(id="firstname")
-    private WebElement firstName;
-
-    @FindBy(id="lastname")
-    private WebElement lastName;
-
-    @FindBy(id="username")
-    private WebElement username;
-
-    @FindBy(id="email")
-    private WebElement email;
-
-    @FindBy(id="password")
-    private WebElement password;
-
-    @FindBy(id="accept_privacy")
-    private WebElement acceptPrivacy;
-
-    @FindBy(id="register_submit")
-    private WebElement registerSubmit;
-
-    @FindBys({ @FindBy(className="validation-msg invalid") })
-    public List<WebElement> validationMessage;
-
-    public SignUpPage(WebDriver driver) {
-        super(driver);
+    public SignUpPage() {
+        super(DriverInit.getDriver());
     }
 
-    public boolean isInitialized() {
-        return firstName.isDisplayed();
-    }
-
-    @FindBy(id="validate_email_hint")
-    private WebElement userValidation;
-
-    public void registerUser(String firstName, String lastName, String userName, String email, String password ){
-        this.firstName.clear();
-        this.firstName.sendKeys(firstName);
-
-        this.lastName.clear();
-        this.lastName.sendKeys(lastName);
-
-        this.username.clear();
-        this.username.sendKeys(userName);
-
-        this.email.clear();
-        this.email.sendKeys(email);
-
-        this.password.clear();
-        this.password.sendKeys(password);
-
-        this.acceptPrivacy.click();
-        this.registerSubmit.click();
-    }
-
-    public String url() {
-       return driver.getCurrentUrl();
+    public void registerUser(String firstNameInput, String lastNameInput, String userNameInput, String emailInput, String passwordInput ){
+        type(By.id(FIRST_NAME), firstNameInput);
+        type(By.id(LAST_NAME), lastNameInput);
+        type(By.id(USERNAME), userNameInput);
+        type(By.id(EMAIL), emailInput);
+        type(By.id(PASSWORD), passwordInput);
+        click(By.id(ACCEPT_PRIVACY));
+        click(By.id(SUBMIT));
     }
 
     public String confirmationMessage() {
-        return this.userValidation.getText();
+        return getText(By.id(USER_VALIDATION));
     }
 }

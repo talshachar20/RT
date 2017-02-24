@@ -1,38 +1,23 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by tal.shachar on 22/02/17.
  */
-public class LoginPage extends DriverInit {
-    @FindBy(id="username")
-    private WebElement userName;
+public class LoginPage extends BasePage {
+    private final String USERNAME = "username";
+    private final String PASSWORD = "login_credentials_password";
+    private final String SUBMIT = "login_submit";
 
-    @FindBy(id="login_credentials_password")
-    private WebElement password;
-
-    @FindBy(id="login_submit")
-    private WebElement loginSubmit;
-
-    public LoginPage(WebDriver driver) {
-        super(driver);
+    public LoginPage() {
+        super(DriverInit.getDriver());
     }
 
     public void login(String usernameInput, String passwordInput)  {
-
-        this.userName.clear();
-        this.userName.sendKeys(usernameInput);
-
-        this.password.clear();
-        this.password.sendKeys(passwordInput);
-
-        this.loginSubmit.click();
+        type(By.id(USERNAME), usernameInput);
+        type(By.id(PASSWORD), passwordInput);
+        click(By.id(SUBMIT));
     }
 
 }
