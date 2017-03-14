@@ -43,4 +43,50 @@ public class SignUpTest extends TestSetup {
         assertTrue(mainPage.userSectionText().contains(userName));
         mainPage.logOut();
     }
+
+    @Test
+    public void SignUpErrorsTest(){
+        String url = "https://en.dawanda.com/";
+        String randomString = UUID.randomUUID().toString();
+        String emptyField = "Must be completed";
+
+        DriverInit.getDriver().get(url);
+        MainPage mainPage = new MainPage();
+
+        // logout if user is register
+        if (!mainPage.userSectionText().contains("Register")) {
+            mainPage.logOut();
+        }
+        mainPage.navigateToRegister();
+        SignUpPage signUpPage = new SignUpPage();
+
+        signUpPage.registerUser("", "", "", "", "");
+        assertTrue(signUpPage.validationMessage("1").contains(emptyField));
+        assertTrue(signUpPage.validationMessage("2").contains(emptyField));
+        assertTrue(signUpPage.validationMessage("3").contains(emptyField));
+        assertTrue(signUpPage.validationMessage("4").contains(emptyField));
+        assertTrue(signUpPage.validationMessage("5").contains(emptyField));
+    }
+
+    @Test
+    public void SignUpInvalid(){
+        String url = "https://en.dawanda.com/";
+        String randomString = UUID.randomUUID().toString();
+        String invalidMail = "It is not valid";
+        String passwordDigits = "Please enter at least 5 characters for your password";
+
+        DriverInit.getDriver().get(url);
+        MainPage mainPage = new MainPage();
+
+        // logout if user is register
+        if (!mainPage.userSectionText().contains("Register")) {
+            mainPage.logOut();
+        }
+        mainPage.navigateToRegister();
+        SignUpPage signUpPage = new SignUpPage();
+
+        signUpPage.registerUser("", "", "", "test", "x");
+        assertTrue(signUpPage.validationMessage("4").contains(invalidMail));
+        assertTrue(signUpPage.validationMessage("5").contains(passwordDigits));
+    }
 }

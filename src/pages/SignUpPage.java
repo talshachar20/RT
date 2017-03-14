@@ -4,6 +4,8 @@ package pages;
  * Created by tal.shachar on 21/02/17.
  */
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.pagefactory.ByAll;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +20,7 @@ public class SignUpPage extends BasePage {
     private final String ACCEPT_PRIVACY = "accept_privacy";
     private final String SUBMIT = "register_submit";
     private final String USER_VALIDATION = "validate_email_hint";
+    private final String INVALID = "//*[@id=\"registration_form\"]/fieldset/dl/div";
 
     public SignUpPage() {
         super(DriverInit.getDriver());
@@ -36,4 +39,6 @@ public class SignUpPage extends BasePage {
     public String confirmationMessage() {
         return getText(By.id(USER_VALIDATION));
     }
+
+    public String validationMessage(String index) { return  getText(By.xpath(INVALID + "[" + index + "]"));}
 }
