@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ebb9290-455f-4447-89e9-53b272e70ef2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dawanda/pages/SignUpPage.class" afterPath="$PROJECT_DIR$/out/production/Dawanda/pages/SignUpPage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dawanda/tests/SignUpTest.class" afterPath="$PROJECT_DIR$/out/production/Dawanda/tests/SignUpTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/SignUpPage.java" afterPath="$PROJECT_DIR$/src/pages/SignUpPage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tests/SignUpTest.java" afterPath="$PROJECT_DIR$/src/tests/SignUpTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -96,8 +92,8 @@
       <file leaf-file-name="SignUpTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/tests/SignUpTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="83" column="9" lean-forward="true" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
+            <state relative-caret-position="253">
+              <caret line="91" column="1" lean-forward="true" selection-start-line="91" selection-start-column="1" selection-end-line="91" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -780,14 +776,11 @@
       <workItem from="1487751919980" duration="16400000" />
       <workItem from="1487855233257" duration="8677000" />
       <workItem from="1489512534517" duration="85000" />
-      <workItem from="1489514046042" duration="5638000" />
+      <workItem from="1489514046042" duration="6334000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SignUpTest_(1) - 2017.03.14 at 20h 53m 20s.xml">
-      <configuration name="SignUpTest (1)" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="SignUpTest_(1) - 2017.03.14 at 20h 58m 21s.xml">
       <configuration name="SignUpTest (1)" configurationId="JUnit" />
     </history-entry>
@@ -815,9 +808,12 @@
     <history-entry file="SignUpTest_(1) - 2017.03.14 at 21h 28m 12s.xml">
       <configuration name="SignUpTest (1)" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="SignUpTest_(1) - 2017.03.14 at 21h 37m 33s.xml">
+      <configuration name="SignUpTest (1)" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38495000" />
+    <option name="totallyTimeSpent" value="39191000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="681" extended-state="0" />
@@ -1498,8 +1494,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tests/SignUpTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="83" column="9" lean-forward="true" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
+        <state relative-caret-position="253">
+          <caret line="91" column="1" lean-forward="true" selection-start-line="91" selection-start-column="1" selection-end-line="91" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

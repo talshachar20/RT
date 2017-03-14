@@ -45,7 +45,7 @@ public class SignUpTest extends TestSetup {
     }
 
     @Test
-    public void SignUpErrorsTest(){
+    public void SignUpNoDataTest(){
         String url = "https://en.dawanda.com/";
         String randomString = UUID.randomUUID().toString();
         String emptyField = "Must be completed";
@@ -69,7 +69,7 @@ public class SignUpTest extends TestSetup {
     }
 
     @Test
-    public void SignUpInvalid(){
+    public void SignUpInvalidDataTest(){
         String url = "https://en.dawanda.com/";
         String randomString = UUID.randomUUID().toString();
         String invalidMail = "It is not valid";
